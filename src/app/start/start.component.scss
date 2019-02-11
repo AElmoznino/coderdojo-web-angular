@@ -1,0 +1,25 @@
+.outer-wrap {
+  display: grid;
+  grid-template-columns: 1fr 900px 1fr;
+
+  > * {
+    grid-column: 2 / auto;
+  }
+}
+
+.difficulty__wrap {
+  background-color: rgb(250, 250, 250);
+  margin-bottom: 50px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(245, 245, 245);
+  padding: 20px;
+
+  &:first-of-type {
+    margin-top: 50px;
+  }
+}
+
+.difficulty__title {
+  color: rgb(34, 52, 65);
+}
