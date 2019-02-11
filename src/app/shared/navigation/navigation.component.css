@@ -1,0 +1,33 @@
+.outer-wrap {
+  display: grid;
+  grid-template-columns: 1fr 900px 1fr;
+  background-color: rgb(83, 131, 247);
+  padding: 20px 0px;
+}
+
+.outer-wrap * {
+  grid-column: 2 / auto;
+}
+
+.inner-wrap {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:not(:last-child) {
+  margin-right: 30px;
+}
+
+a:hover {
+  font-weight: 700;
+  transition: font-weight 300ms;
+}
