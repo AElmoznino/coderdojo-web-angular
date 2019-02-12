@@ -4,7 +4,7 @@ import { MarkdownModule } from 'ngx-markdown'
 
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
-import { StartComponent } from './start/start.component'
+import { StartComponent } from './modules/start/start.component'
 import { GraphQLModule } from './graphql.module'
 import { HttpClientModule } from '@angular/common/http'
 import { CommonModule } from '@angular/common'
