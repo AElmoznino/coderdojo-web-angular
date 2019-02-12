@@ -1,0 +1,27 @@
+<div class="outer-wrap">
+  <div class="inner-wrap">
+    <h1>Översikt av {{ difficulty.difficultyName }}</h1>
+    <markdown [data]="difficulty.difficultyOverviewDescription"> </markdown>
+    <div class="course-wrap__outer" *ngFor="let course of difficulty.courses">
+      <h2>{{ course.courseName }}</h2>
+      <markdown [data]="course.courseDescription"></markdown>
+      <div class="course-wrap__inner">
+        <div
+          *ngFor="let lesson of course.lessons; index as i"
+          class="lesson-wrap"
+        >
+          <img src="https://placeimg.com/180/180/tech" />
+          <h4>{{ i + 1 }}: {{ lesson.lessonTitle }}</h4>
+          <p>{{ lesson.lessonShortFacts }}</p>
+          <a
+            mat-raised-button
+            color="primary"
+            class="lesson__link"
+            routerLink="/lesson/{{ lesson.lessonId }}"
+            >Kom igång</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

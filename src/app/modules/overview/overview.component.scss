@@ -1,0 +1,42 @@
+@import '../../../assets/scss/colors';
+@import '../../../assets/scss/sizes';
+
+.outer-wrap {
+  display: grid;
+  grid-template-columns: 1fr 900px 1fr;
+
+  > * {
+    grid-column: 2 / auto;
+  }
+}
+
+.inner-wrap {
+  background-color: $color-alabaster;
+  border: 1px solid $color-wild-sand;
+  margin-top: $sizes-large;
+  padding: $sizes-medium;
+}
+
+.course-wrap__outer {
+  background-color: $color-white;
+  box-shadow: rgba(67, 73, 89, 0.1) 0px 0px 20px;
+  padding: $sizes-third;
+
+  &:not(:first-of-type) {
+    margin-top: $sizes-base;
+  }
+}
+
+.course-wrap__inner {
+  display: grid;
+  grid-template-columns: 200px 200px 200px 200px;
+  grid-column-gap: $sizes-medium;
+}
+
+.lesson-wrap {
+  background-color: $color-wild-sand;
+  padding: $sizes-third $sizes-third $sizes-medium;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

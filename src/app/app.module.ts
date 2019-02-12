@@ -11,9 +11,15 @@ import { CommonModule } from '@angular/common'
 import { HeaderComponent } from './core/header/header.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatButtonModule } from '@angular/material'
+import { OverviewComponent } from './modules/overview/overview.component'
 
 @NgModule({
-  declarations: [AppComponent, StartComponent, HeaderComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    OverviewComponent,
+    StartComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
