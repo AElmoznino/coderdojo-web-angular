@@ -1,0 +1,30 @@
+<div class="outer-wrap">
+  <div class="inner-wrap">
+    <div class="top-wrap">
+      <div>
+        <h1>{{ lesson.lessonTitle }}</h1>
+        <p>{{ lesson.lessonShortFacts }}</p>
+        <markdown [data]="lesson.lessonIntro"></markdown>
+      </div>
+      <div class="info-box">
+        <h4>Du kommer lära dig:</h4>
+        <markdown [data]="lesson.lessonObjectives"></markdown>
+      </div>
+    </div>
+    <markdown [data]="lesson.lessonBody"></markdown>
+    <div class="info-box">
+      <markdown [data]="lesson.references"></markdown>
+    </div>
+  </div>
+  <div class="next-outerwrap" *ngIf="lesson.nextLesson">
+    <div class="next-innerwrap">
+      <strong>Nästa lektion: {{ lesson.nextLesson.lessonTitle }}</strong>
+      <a
+        mat-raised-button
+        color="primary"
+        routerLink="/lesson/{{ lesson.nextLesson.lessonId }}"
+        >Fortsätt ></a
+      >
+    </div>
+  </div>
+</div>

@@ -29,3 +29,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Folder structure:
 
 Inspired by https://itnext.io/choosing-a-highly-scalable-folder-structure-in-angular-d987de65ec7
+
+## TODOS:
+
+- [ ] Add loading state/spinner
+- [ ] Add else-check for NextLesson with a link to the Level-overview
+- [ ] Implement References and About pages
+- [ ] Add types to data returned by GraphCMS
+- [ ] Tests

@@ -1,0 +1,40 @@
+@import '../../../assets/scss/colors';
+@import '../../../assets/scss/sizes';
+
+.outer-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1200px 1fr;
+
+  > * {
+    grid-column: 2 / auto;
+  }
+}
+
+.inner-wrap {
+  background-color: $color-alabaster;
+  border: 1px solid $color-wild-sand;
+  margin-top: $sizes-large;
+  padding: $sizes-medium;
+}
+
+.top-wrap {
+  display: grid;
+  grid-column-gap: $sizes-medium;
+  grid-template-columns: 2fr 1fr;
+}
+
+.info-box {
+  background-color: $color-periwinkle-gray;
+  padding: $sizes-medium;
+}
+
+.next-outerwrap {
+  @extend .inner-wrap;
+  margin-bottom: $sizes-large;
+}
+
+.next-innerwrap {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
