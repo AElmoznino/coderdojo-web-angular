@@ -1,8 +1,11 @@
+@import '../../../assets/scss/colors';
+@import '../../../assets/scss/sizes';
+
 .outer-wrap {
   display: grid;
   grid-template-columns: 1fr 900px 1fr;
-  background-color: rgb(83, 131, 247);
-  padding: 20px 0px;
+  background-color: $color-cornflower-blue;
+  padding: $sizes-medium 0px;
 
   > * {
     grid-column: 2 / auto;
@@ -19,11 +22,11 @@
 }
 
 a {
-  color: #fff;
+  color: $color-white;
   text-decoration: none;
 
   &:not(:last-child) {
-    margin-right: 30px;
+    margin-right: $sizes-base;
   }
 
   &:hover {
