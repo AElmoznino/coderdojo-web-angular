@@ -4,7 +4,7 @@
 .outer-wrap {
   display: grid;
   grid-template-columns: 1fr 900px 1fr;
-  background-color: $color-cornflower-blue;
+  background-color: $color-san-marino;
   padding: $sizes-medium 0px;
 
   > * {
@@ -30,7 +30,7 @@ a {
   }
 
   &:hover {
-    font-weight: 700;
-    transition: font-weight 300ms;
+    font-weight: 500;
+    transition: font-weight 200ms;
   }
 }

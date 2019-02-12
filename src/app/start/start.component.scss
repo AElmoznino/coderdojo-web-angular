@@ -26,3 +26,20 @@
 .difficulty__title {
   color: $color-pickled-bluewood;
 }
+
+.difficulty__innerwrap {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-column-gap: $sizes-medium;
+}
+
+.difficulty__infowrap {
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+
+.difficulty__link {
+  align-self: flex-end;
+}

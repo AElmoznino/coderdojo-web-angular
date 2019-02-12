@@ -25,3 +25,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Folder structure:
+
+Inspired by https://itnext.io/choosing-a-highly-scalable-folder-structure-in-angular-d987de65ec7
