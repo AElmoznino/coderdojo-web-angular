@@ -1,0 +1,36 @@
+@import '../../../assets/scss/colors';
+
+.chrome-warning__wrap {
+  animation: slideUp 3s ease-in-out;
+  background-color: $color-pomegranate;
+  bottom: 0;
+  color: $color-white;
+  display: grid;
+  grid-template-columns: 1fr 900px 1fr;
+  height: 300px;
+  left: 0;
+  position: absolute;
+  right: 0;
+
+  > * {
+    grid-column: 2 / auto;
+  }
+
+  a {
+    color: $color-mine-shaft;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    height: 0px;
+  }
+  100% {
+    height: 300px;
+  }
+}
+
+.dismiss-button {
+  align-self: baseline;
+  justify-self: center;
+}

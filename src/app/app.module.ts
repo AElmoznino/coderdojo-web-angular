@@ -15,6 +15,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { OverviewComponent } from './modules/overview/overview.component'
 import { LessonComponent } from './modules/lesson/lesson.component'
 import { InfoComponent } from './modules/info/info.component'
+import { ChromeCheckComponent } from './core/chrome-check/chrome-check.component'
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { InfoComponent } from './modules/info/info.component'
     StartComponent,
     LessonComponent,
     InfoComponent,
+    ChromeCheckComponent,
   ],
   imports: [
     BrowserModule,

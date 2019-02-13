@@ -1,0 +1,17 @@
+<div *ngIf="!isChrome">
+  <div class="chrome-warning__wrap" *ngIf="!hasDismissedChromeCheck">
+    <h1>
+      <a
+        href="https://www.google.com/chrome/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Ladda ner Google Chrome</a
+      >
+      för att få bästa upplevelse av sidan.
+    </h1>
+    <button class="dismiss-button" mat-raised-button (click)="dismissCheck()">
+      Visa inte igen
+    </button>
+  </div>
+</div>
