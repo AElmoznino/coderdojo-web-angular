@@ -34,6 +34,9 @@ Inspired by https://itnext.io/choosing-a-highly-scalable-folder-structure-in-ang
 
 - [ ] Add loading state/spinner
 - [x] Add else-check for NextLesson with a link to the Level-overview
-- [ ] Implement References and About pages
+- [x] Implement References and About pages
 - [ ] Add types to data returned by GraphCMS
 - [ ] Tests
+- [ ] Add Chromecheck
+- [ ] Add scrollrestoration/scroll to top
+- [ ] Add 404 page

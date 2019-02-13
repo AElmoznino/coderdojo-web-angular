@@ -11,8 +11,9 @@ import { CommonModule } from '@angular/common'
 import { HeaderComponent } from './core/header/header.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatButtonModule } from '@angular/material'
-import { OverviewComponent } from './modules/overview/overview.component';
+import { OverviewComponent } from './modules/overview/overview.component'
 import { LessonComponent } from './modules/lesson/lesson.component'
+import { InfoComponent } from './modules/info/info.component'
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { LessonComponent } from './modules/lesson/lesson.component'
     OverviewComponent,
     StartComponent,
     LessonComponent,
+    InfoComponent,
   ],
   imports: [
     BrowserModule,
