@@ -6,12 +6,20 @@ import { environment } from '../environments/environment.local'
 import { HttpHeaders } from '@angular/common/http'
 
 const uri = environment.graphCMSEndpoint // <-- add the URL of the GraphQL server here
-export function createApollo(httpLink: HttpLink) {
+
+const getUserLanguage = () => {
+  const userLanguage = localStorage.getItem('userLanguage')
+
+  return userLanguage ? userLanguage : 'SV'
+}
+
+const createApollo = (httpLink: HttpLink) => {
   return {
     link: httpLink.create({
       uri,
       headers: new HttpHeaders({
         Authorization: environment.graphCMSToken,
+        locale: getUserLanguage(),
       }),
     }),
     cache: new InMemoryCache(),

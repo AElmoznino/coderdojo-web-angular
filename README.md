@@ -32,6 +32,7 @@ Inspired by https://itnext.io/choosing-a-highly-scalable-folder-structure-in-ang
 
 ## TODOS:
 
+- [ ] Add multiple languages support. Get Header/Navigation texts from CMS.
 - [ ] Add types to data returned by GraphCMS
 - [ ] Tests
 - [x] ~~Add 404 page~~ Redirect to start page if unknown path (i.e. add wildcard route)
