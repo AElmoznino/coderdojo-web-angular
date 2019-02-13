@@ -7,8 +7,6 @@ import { Router, NavigationEnd } from '@angular/router'
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'coderdojo-web-angular'
-
   constructor(private router: Router) {
     this.router.events.subscribe(val => {
       if (val instanceof NavigationEnd) {

@@ -6,23 +6,31 @@
       hemsidor, lösa din matteläxor med hjälp av kod, och mycket annat skoj.
       Webbskolan är helt gratis och du behöver inget konto.
     </p>
-    <div *ngFor="let difficulty of difficulties" class="difficulty__wrap">
-      <h1 class="difficulty__title">{{ difficulty.difficultyName }}</h1>
-      <div class="difficulty__innerwrap">
-        <img src="https://placeimg.com/200/200/tech" />
-        <div class="difficulty__infowrap">
-          <markdown ngPreserveWhitespaces>
-            {{ difficulty.difficultyDescription }}
-          </markdown>
-          <a
-            mat-raised-button
-            color="primary"
-            class="difficulty__link"
-            routerLink="/overview/{{ difficulty.difficultyId }}"
-            >Kom igång</a
-          >
+    <div *ngIf="difficulties && difficulties.length; else spinner">
+      <div *ngFor="let difficulty of difficulties" class="difficulty__wrap">
+        <h1 class="difficulty__title">{{ difficulty.difficultyName }}</h1>
+        <div class="difficulty__innerwrap">
+          <img src="https://placeimg.com/200/200/tech" />
+          <div class="difficulty__infowrap">
+            <markdown ngPreserveWhitespaces>
+              {{ difficulty.difficultyDescription }}
+            </markdown>
+            <a
+              mat-raised-button
+              color="primary"
+              class="difficulty__link"
+              routerLink="/overview/{{ difficulty.difficultyId }}"
+              >Kom igång</a
+            >
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <ng-template #spinner>
+    <mat-progress-spinner
+      class="spinner"
+      mode="indeterminate"
+    ></mat-progress-spinner>
+  </ng-template>
 </div>

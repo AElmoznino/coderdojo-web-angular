@@ -1,5 +1,11 @@
 <div class="outer-wrap">
-  <div class="inner-wrap" *ngIf="page?.pageBody">
+  <div class="inner-wrap" *ngIf="page?.pageBody; else spinner">
     <markdown [data]="page.pageBody"></markdown>
   </div>
+  <ng-template #spinner>
+    <mat-progress-spinner
+      class="spinner"
+      mode="indeterminate"
+    ></mat-progress-spinner>
+  </ng-template>
 </div>

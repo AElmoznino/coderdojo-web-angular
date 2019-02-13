@@ -1,5 +1,5 @@
 <div class="outer-wrap">
-  <div class="inner-wrap">
+  <div class="inner-wrap" *ngIf="difficulty?.difficultyName; else spinner">
     <h1>Översikt av {{ difficulty.difficultyName }}</h1>
     <markdown [data]="difficulty.difficultyOverviewDescription"> </markdown>
     <div class="course-wrap__outer" *ngFor="let course of difficulty.courses">
@@ -24,4 +24,10 @@
       </div>
     </div>
   </div>
+  <ng-template #spinner>
+    <mat-progress-spinner
+      class="spinner"
+      mode="indeterminate"
+    ></mat-progress-spinner>
+  </ng-template>
 </div>
