@@ -27,7 +27,7 @@
           mat-raised-button
           color="primary"
           routerLink="/lesson/{{ lesson.nextLesson.lessonId }}"
-          >Fortsätt ></a
+          >Fortsätt <mat-icon>chevron_right</mat-icon></a
         >
       </div>
       <ng-template #backToOverview>
@@ -39,7 +39,7 @@
             mat-raised-button
             color="primary"
             routerLink="/overview/{{ lesson.difficultyLevel }}"
-            >Tillbaka</a
+            ><mat-icon>chevron_left</mat-icon> Tillbaka</a
           >
         </div>
       </ng-template>

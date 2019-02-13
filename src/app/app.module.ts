@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { CommonModule } from '@angular/common'
 import { HeaderComponent } from './core/header/header.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { MatButtonModule } from '@angular/material'
+import { MatButtonModule, MatIconModule } from '@angular/material'
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { OverviewComponent } from './modules/overview/overview.component'
 import { LessonComponent } from './modules/lesson/lesson.component'
@@ -37,6 +37,7 @@ import { ChromeCheckComponent } from './core/chrome-check/chrome-check.component
     BrowserAnimationsModule,
     MatButtonModule,
     MatProgressSpinnerModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

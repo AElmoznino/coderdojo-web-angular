@@ -39,4 +39,5 @@ Inspired by https://itnext.io/choosing-a-highly-scalable-folder-structure-in-ang
 - [x] Implement References and About pages
 - [x] Add scrollrestoration/scroll to top (between page navigation)
 - [x] Add loading state/spinner
-- [ ] Add Chromecheck
+- [x] Add Chromecheck
+- [x] Add icons to buttons/links

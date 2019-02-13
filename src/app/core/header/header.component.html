@@ -4,9 +4,15 @@
       <img src="./../assets/cd-logo.png" />
     </a>
     <div>
-      <a routerLink="/">Startsidan</a>
-      <a routerLink="/info/references">Referenser</a>
-      <a routerLink="/info/about">About</a>
+      <button mat-button routerLink="/">
+        <mat-icon>home</mat-icon> Startsidan
+      </button>
+      <button mat-button routerLink="/info/references">
+        <mat-icon>description</mat-icon>Referenser
+      </button>
+      <button mat-button routerLink="/info/about">
+        <mat-icon>info</mat-icon> Om
+      </button>
     </div>
   </div>
 </nav>
