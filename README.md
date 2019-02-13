@@ -33,8 +33,8 @@ Inspired by https://itnext.io/choosing-a-highly-scalable-folder-structure-in-ang
 ## TODOS:
 
 - [ ] Add types to data returned by GraphCMS
-- [ ] Add 404 page
 - [ ] Tests
+- [x] ~~Add 404 page~~ Redirect to start page if unknown path (i.e. add wildcard route)
 - [x] Add else-check for NextLesson with a link to the Level-overview
 - [x] Implement References and About pages
 - [x] Add scrollrestoration/scroll to top (between page navigation)

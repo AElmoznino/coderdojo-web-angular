@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'overview/:level', component: OverviewComponent },
   { path: 'lesson/:lessonId', component: LessonComponent },
   { path: 'info/:pageId', component: InfoComponent },
+  { path: '**', component: StartComponent },
 ]
 
 @NgModule({
