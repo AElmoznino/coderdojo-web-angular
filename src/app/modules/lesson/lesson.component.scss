@@ -11,7 +11,7 @@
 }
 
 .inner-wrap {
-  background-color: $color-alabaster;
+  background-color: $color-white-lilac;
   border: 1px solid $color-wild-sand;
   margin-top: $sizes-large;
   padding: $sizes-medium;
@@ -28,13 +28,13 @@
   padding: $sizes-medium;
 }
 
-.next-outerwrap {
-  @extend .inner-wrap;
-  margin-bottom: $sizes-large;
-}
-
 .next-innerwrap {
   align-items: center;
   display: flex;
   justify-content: space-between;
+}
+
+.next-outerwrap {
+  @extend .inner-wrap;
+  margin-bottom: $sizes-large;
 }

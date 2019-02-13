@@ -33,7 +33,7 @@ Inspired by https://itnext.io/choosing-a-highly-scalable-folder-structure-in-ang
 ## TODOS:
 
 - [ ] Add loading state/spinner
-- [ ] Add else-check for NextLesson with a link to the Level-overview
+- [x] Add else-check for NextLesson with a link to the Level-overview
 - [ ] Implement References and About pages
 - [ ] Add types to data returned by GraphCMS
 - [ ] Tests

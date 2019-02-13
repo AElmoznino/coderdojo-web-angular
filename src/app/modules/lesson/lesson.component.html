@@ -16,8 +16,8 @@
       <markdown [data]="lesson.references"></markdown>
     </div>
   </div>
-  <div class="next-outerwrap" *ngIf="lesson.nextLesson">
-    <div class="next-innerwrap">
+  <div class="next-outerwrap">
+    <div class="next-innerwrap" *ngIf="lesson.nextLesson; else backToOverview">
       <strong>Nästa lektion: {{ lesson.nextLesson.lessonTitle }}</strong>
       <a
         mat-raised-button
@@ -26,5 +26,16 @@
         >Fortsätt ></a
       >
     </div>
+    <ng-template #backToOverview>
+      <div class="next-innerwrap">
+        <strong>Bra jobbat, du är färdig! Tillbaka till översiktssidan</strong>
+        <a
+          mat-raised-button
+          color="primary"
+          routerLink="/overview/{{ lesson.difficultyLevel }}"
+          >Tillbaka</a
+        >
+      </div>
+    </ng-template>
   </div>
 </div>
