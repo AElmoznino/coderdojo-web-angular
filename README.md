@@ -43,3 +43,4 @@ Inspired by https://itnext.io/choosing-a-highly-scalable-folder-structure-in-ang
 - [x] Add icons to buttons/links
 - [x] Add multiple languages support. Get Header/Navigation texts from CMS.
 - [x] Create helper that creates object of words-query for easier access
+- [x] Make responsive

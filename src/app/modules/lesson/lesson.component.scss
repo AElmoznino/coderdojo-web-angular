@@ -1,5 +1,6 @@
 @import '../../../assets/scss/colors';
 @import '../../../assets/scss/sizes';
+@import '../../../assets/scss/media';
 
 .outer-wrap {
   display: grid;
@@ -8,6 +9,10 @@
   > * {
     grid-column: 2 / auto;
   }
+
+  @include mobile {
+    display: block;
+  }
 }
 
 .inner-wrap {
@@ -15,12 +20,20 @@
   border: 1px solid $color-wild-sand;
   margin-top: $sizes-large;
   padding: $sizes-medium;
+
+  @include mobile {
+    max-width: 90vw;
+  }
 }
 
 .top-wrap {
   display: grid;
   grid-column-gap: $sizes-medium;
   grid-template-columns: 2fr 1fr;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
 }
 
 .info-box {
@@ -32,6 +45,11 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
+
+  @include mobile {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
 }
 
 .next-outerwrap {

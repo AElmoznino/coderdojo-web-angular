@@ -1,5 +1,6 @@
 @import '../../../assets/scss/colors';
 @import '../../../assets/scss/sizes';
+@import '../../../assets/scss/media';
 
 .outer-wrap {
   display: grid;
@@ -8,6 +9,10 @@
   > * {
     grid-column: 2 / auto;
   }
+
+  @include mobile {
+    display: block;
+  }
 }
 
 .inner-wrap {
@@ -15,6 +20,10 @@
   border: 1px solid $color-wild-sand;
   margin-top: $sizes-large;
   padding: $sizes-medium;
+
+  @include mobile {
+    margin: $sizes-large 0;
+  }
 }
 
 .course-wrap__outer {
@@ -31,6 +40,11 @@
   display: grid;
   grid-template-columns: repeat(4, 200px);
   grid-column-gap: $sizes-medium;
+
+  @include mobile {
+    grid-row-gap: $sizes-medium;
+    grid-template-columns: 1fr;
+  }
 }
 
 .lesson-wrap {
@@ -39,4 +53,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.lesson__link {
+  @include mobile {
+    align-self: flex-end;
+  }
 }

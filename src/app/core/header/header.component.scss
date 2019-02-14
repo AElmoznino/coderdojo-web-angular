@@ -1,5 +1,6 @@
 @import '../../../assets/scss/colors';
 @import '../../../assets/scss/sizes';
+@import '../../../assets/scss/media';
 
 .outer-wrap {
   display: grid;
@@ -9,6 +10,11 @@
 
   > * {
     grid-column: 2 / auto;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    padding: 20px;
   }
 }
 

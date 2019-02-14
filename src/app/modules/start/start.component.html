@@ -1,6 +1,8 @@
 <div class="outer-wrap">
   <div>
-    <markdown [data]="pageBody"></markdown>
+    <div class="body-wrap">
+      <markdown [data]="pageBody"></markdown>
+    </div>
     <div *ngIf="difficulties && difficulties.length; else spinner">
       <div *ngFor="let difficulty of difficulties" class="difficulty__wrap">
         <h1 class="difficulty__title">{{ difficulty.difficultyName }}</h1>

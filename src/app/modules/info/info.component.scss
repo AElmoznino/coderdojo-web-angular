@@ -1,5 +1,6 @@
 @import '../../../assets/scss/colors';
 @import '../../../assets/scss/sizes';
+@import '../../../assets/scss/media';
 
 .outer-wrap {
   display: grid;
@@ -8,6 +9,10 @@
   > * {
     grid-column: 2 / auto;
   }
+
+  @include mobile {
+    display: block;
+  }
 }
 
 .inner-wrap {
@@ -15,4 +20,8 @@
   border: 1px solid $color-wild-sand;
   margin-top: $sizes-large;
   padding: $sizes-medium;
+
+  @include mobile {
+    margin: $sizes-large 0;
+  }
 }

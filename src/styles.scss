@@ -1,3 +1,5 @@
+@import './assets/scss/colors';
+
 html,
 body {
   height: 100%;
@@ -11,4 +13,9 @@ body {
 
 .spinner {
   margin: 100px auto 0px;
+}
+
+a {
+  color: $color-jacksons-purple;
+  font-weight: 500;
 }

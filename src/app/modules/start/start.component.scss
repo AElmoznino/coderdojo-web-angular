@@ -1,5 +1,6 @@
 @import '../../../assets/scss/colors';
 @import '../../../assets/scss/sizes';
+@import '../../../assets/scss/media';
 
 .outer-wrap {
   display: grid;
@@ -7,6 +8,16 @@
 
   > * {
     grid-column: 2 / auto;
+  }
+
+  @include mobile {
+    display: block;
+  }
+}
+
+.body-wrap {
+  @include mobile {
+    padding: 0 $sizes-medium;
   }
 }
 
@@ -31,6 +42,10 @@
   display: grid;
   grid-template-columns: 200px 1fr;
   grid-column-gap: $sizes-medium;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
 }
 
 .difficulty__infowrap {
