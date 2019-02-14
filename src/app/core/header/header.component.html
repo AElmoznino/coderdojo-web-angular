@@ -3,16 +3,19 @@
     <a routerLink="/">
       <img src="./../assets/cd-logo.png" />
     </a>
-    <div>
+    <div *ngIf="words">
       <button mat-button routerLink="/">
-        <mat-icon>home</mat-icon> Startsidan
+        <mat-icon>home</mat-icon> {{ words.homePage }}
       </button>
       <button mat-button routerLink="/info/references">
-        <mat-icon>description</mat-icon> Referenser
+        <mat-icon>description</mat-icon> {{ words.references }}
       </button>
       <button mat-button routerLink="/info/about">
-        <mat-icon>info</mat-icon> Om
+        <mat-icon>info</mat-icon> {{ words.about }}
       </button>
+      <app-language-picker
+        [languageString]="words.language"
+      ></app-language-picker>
     </div>
   </div>
 </nav>

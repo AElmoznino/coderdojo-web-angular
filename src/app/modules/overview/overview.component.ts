@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import gql from 'graphql-tag'
 import { Apollo } from 'apollo-angular'
 import { ActivatedRoute } from '@angular/router'
+import { handleWords } from '../../shared/wordHelper'
 
 const GET_OVERVIEW = gql`
   query getOverview($level: String) {
@@ -21,6 +22,10 @@ const GET_OVERVIEW = gql`
         }
       }
     }
+    words(where: { wordId_in: ["overviewOf", "getStarted"] }) {
+      word
+      wordId
+    }
   }
 `
 
@@ -32,6 +37,7 @@ const GET_OVERVIEW = gql`
 export class OverviewComponent implements OnInit {
   difficulty: any
   levelId: any
+  words: object
   constructor(private apollo: Apollo, private route: ActivatedRoute) {}
 
   ngOnInit() {
@@ -46,6 +52,9 @@ export class OverviewComponent implements OnInit {
           level: this.levelId,
         },
       })
-      .valueChanges.subscribe(({ data }) => (this.difficulty = data.difficulty))
+      .valueChanges.subscribe(({ data }) => {
+        this.difficulty = data.difficulty
+        this.words = handleWords(data.words)
+      })
   }
 }

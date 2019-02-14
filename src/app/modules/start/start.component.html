@@ -1,11 +1,6 @@
 <div class="outer-wrap">
   <div>
-    <h1>Välkommen till CoderDojo Webbskolan</h1>
-    <p>
-      Här kan du lära dig koda för webben. När du är klar kommer du kunna bygga
-      hemsidor, lösa din matteläxor med hjälp av kod, och mycket annat skoj.
-      Webbskolan är helt gratis och du behöver inget konto.
-    </p>
+    <markdown [data]="pageBody"></markdown>
     <div *ngIf="difficulties && difficulties.length; else spinner">
       <div *ngFor="let difficulty of difficulties" class="difficulty__wrap">
         <h1 class="difficulty__title">{{ difficulty.difficultyName }}</h1>
@@ -20,7 +15,7 @@
               color="primary"
               class="difficulty__link"
               routerLink="/overview/{{ difficulty.difficultyId }}"
-              >Kom igång</a
+              >{{ getStarted }}</a
             >
           </div>
         </div>

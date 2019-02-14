@@ -1,6 +1,6 @@
 <div class="outer-wrap">
   <div class="inner-wrap" *ngIf="difficulty?.difficultyName; else spinner">
-    <h1>Översikt av {{ difficulty.difficultyName }}</h1>
+    <h1>{{ words.overviewOf }} {{ difficulty.difficultyName }}</h1>
     <markdown [data]="difficulty.difficultyOverviewDescription"> </markdown>
     <div class="course-wrap__outer" *ngFor="let course of difficulty.courses">
       <h2>{{ course.courseName }}</h2>
@@ -18,7 +18,7 @@
             color="primary"
             class="lesson__link"
             routerLink="/lesson/{{ lesson.lessonId }}"
-            >Kom igång</a
+            >{{ words.getStarted }}</a
           >
         </div>
       </div>

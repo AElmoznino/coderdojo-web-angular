@@ -10,6 +10,12 @@ const GET_DIFFICULTIES = gql`
       difficultyName
       difficultyOverviewDescription
     }
+    page(where: { pageId: "start" }) {
+      pageBody
+    }
+    words(where: { wordId: "getStarted" }) {
+      word
+    }
   }
 `
 @Component({
@@ -19,6 +25,9 @@ const GET_DIFFICULTIES = gql`
 })
 export class StartComponent implements OnInit {
   difficulties: any
+  pageBody: any
+  getStarted: string
+
   constructor(private apollo: Apollo) {}
 
   ngOnInit() {
@@ -28,6 +37,8 @@ export class StartComponent implements OnInit {
       })
       .valueChanges.subscribe(({ data }) => {
         this.difficulties = data.difficulties
+        this.pageBody = data.page.pageBody
+        this.getStarted = data.words[0].word
       })
   }
 }
