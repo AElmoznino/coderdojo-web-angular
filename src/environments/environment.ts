@@ -4,6 +4,10 @@
 
 export const environment = {
   production: false,
+  graphCMSEndpoint:
+    'https://api-euwest.graphcms.com/v1/cjppllqze4bww01gj4q3pd9ub/master',
+  graphCMSToken:
+    'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2ZXJzaW9uIjoxLCJ0b2tlbklkIjoiYThiN2M1NzEtNjE5Zi00MjliLWExNjctODNhNjY5YTdiZTUyIn0.Mya_XdGf8R3zrz2dWtmisg153HWGkiTLrFU-JEfuk0Q',
 }
 
 /*
