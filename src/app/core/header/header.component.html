@@ -3,7 +3,7 @@
     <a routerLink="/">
       <img src="./../assets/cd-logo.png" />
     </a>
-    <div>
+    <div *ngIf="words">
       <button mat-button routerLink="/">
         <mat-icon>home</mat-icon> {{ words.homePage }}
       </button>
