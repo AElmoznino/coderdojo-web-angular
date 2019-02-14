@@ -5,15 +5,17 @@
     </a>
     <div>
       <button mat-button routerLink="/">
-        <mat-icon>home</mat-icon> {{ homePage }}
+        <mat-icon>home</mat-icon> {{ words.homePage }}
       </button>
       <button mat-button routerLink="/info/references">
-        <mat-icon>description</mat-icon> {{ references }}
+        <mat-icon>description</mat-icon> {{ words.references }}
       </button>
       <button mat-button routerLink="/info/about">
-        <mat-icon>info</mat-icon> {{ about }}
+        <mat-icon>info</mat-icon> {{ words.about }}
       </button>
-      <app-language-picker [languageString]="language"></app-language-picker>
+      <app-language-picker
+        [languageString]="words.language"
+      ></app-language-picker>
     </div>
   </div>
 </nav>

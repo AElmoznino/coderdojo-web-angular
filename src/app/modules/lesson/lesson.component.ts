@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import gql from 'graphql-tag'
 import { Apollo } from 'apollo-angular'
 import { ActivatedRoute } from '@angular/router'
+import { handleWords } from '../../shared/wordHelper'
 
 const GET_LESSON = gql`
   query GetLesson($lesson: String) {
@@ -35,10 +36,7 @@ const GET_LESSON = gql`
 export class LessonComponent implements OnInit {
   lesson: any
   lessonId: any
-  nextLesson: string
-  continue: string
-  greatJobLesson: string
-  back: string
+  words: object
 
   constructor(private apollo: Apollo, private route: ActivatedRoute) {}
 
@@ -61,12 +59,7 @@ export class LessonComponent implements OnInit {
       })
       .valueChanges.subscribe(({ data }) => {
         this.lesson = data.lesson
-        this.nextLesson = data.words.find(w => w.wordId === 'nextLesson').word
-        this.continue = data.words.find(w => w.wordId === 'continue').word
-        this.greatJobLesson = data.words.find(
-          w => w.wordId === 'greatJobLesson',
-        ).word
-        this.back = data.words.find(w => w.wordId === 'back').word
+        this.words = handleWords(data.words)
       })
   }
 }

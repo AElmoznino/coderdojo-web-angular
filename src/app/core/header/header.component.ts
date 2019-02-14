@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import gql from 'graphql-tag'
 import { Apollo } from 'apollo-angular'
+import { handleWords } from '../../shared/wordHelper'
 
 const WORDS_QUERY = gql`
   query getWords {
@@ -19,10 +20,7 @@ const WORDS_QUERY = gql`
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  homePage: string
-  references: string
-  about: string
-  language: string
+  words: object
 
   constructor(private apollo: Apollo) {}
 
@@ -30,10 +28,7 @@ export class HeaderComponent implements OnInit {
     this.apollo
       .watchQuery<any>({ query: WORDS_QUERY })
       .valueChanges.subscribe(({ data }) => {
-        this.homePage = data.words.find(w => w.wordId === 'homePage').word
-        this.references = data.words.find(w => w.wordId === 'references').word
-        this.about = data.words.find(w => w.wordId === 'about').word
-        this.language = data.words.find(w => w.wordId === 'language').word
+        this.words = handleWords(data.words)
       })
   }
 }

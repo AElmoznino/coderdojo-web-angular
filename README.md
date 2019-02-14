@@ -32,7 +32,6 @@ Inspired by https://itnext.io/choosing-a-highly-scalable-folder-structure-in-ang
 
 ## TODOS:
 
-- [ ] Create helper that creates object of words-query for easier access
 - [ ] Add types to data returned by GraphCMS
 - [ ] Tests
 - [x] ~~Add 404 page~~ Redirect to start page if unknown path (i.e. add wildcard route)
@@ -43,3 +42,4 @@ Inspired by https://itnext.io/choosing-a-highly-scalable-folder-structure-in-ang
 - [x] Add Chromecheck
 - [x] Add icons to buttons/links
 - [x] Add multiple languages support. Get Header/Navigation texts from CMS.
+- [x] Create helper that creates object of words-query for easier access

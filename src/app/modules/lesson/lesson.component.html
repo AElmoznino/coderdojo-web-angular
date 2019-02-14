@@ -21,22 +21,24 @@
         class="next-innerwrap"
         *ngIf="lesson?.nextLesson; else backToOverview"
       >
-        <strong>{{ nextLesson }}: {{ lesson.nextLesson.lessonTitle }}</strong>
+        <strong
+          >{{ words.nextLesson }}: {{ lesson.nextLesson.lessonTitle }}</strong
+        >
         <a
           mat-raised-button
           color="primary"
           routerLink="/lesson/{{ lesson.nextLesson.lessonId }}"
-          >{{ continue }} <mat-icon>chevron_right</mat-icon></a
+          >{{ words.continue }} <mat-icon>chevron_right</mat-icon></a
         >
       </div>
       <ng-template #backToOverview>
         <div class="next-innerwrap">
-          <strong>{{ greatJobLesson }}</strong>
+          <strong>{{ words.greatJobLesson }}</strong>
           <a
             mat-raised-button
             color="primary"
             routerLink="/overview/{{ lesson.difficultyLevel }}"
-            ><mat-icon>chevron_left</mat-icon> {{ back }}</a
+            ><mat-icon>chevron_left</mat-icon> {{ words.back }}</a
           >
         </div>
       </ng-template>
