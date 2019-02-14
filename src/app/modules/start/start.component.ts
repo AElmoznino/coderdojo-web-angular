@@ -10,6 +10,9 @@ const GET_DIFFICULTIES = gql`
       difficultyName
       difficultyOverviewDescription
     }
+    page(where: { pageId: "start" }) {
+      pageBody
+    }
   }
 `
 @Component({
@@ -19,6 +22,8 @@ const GET_DIFFICULTIES = gql`
 })
 export class StartComponent implements OnInit {
   difficulties: any
+  pageBody: any
+
   constructor(private apollo: Apollo) {}
 
   ngOnInit() {
@@ -28,6 +33,7 @@ export class StartComponent implements OnInit {
       })
       .valueChanges.subscribe(({ data }) => {
         this.difficulties = data.difficulties
+        this.pageBody = data.page.pageBody
       })
   }
 }
