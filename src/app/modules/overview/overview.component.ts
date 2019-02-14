@@ -21,6 +21,10 @@ const GET_OVERVIEW = gql`
         }
       }
     }
+    words(where: { wordId_in: ["overviewOf", "getStarted"] }) {
+      word
+      wordId
+    }
   }
 `
 
@@ -32,6 +36,8 @@ const GET_OVERVIEW = gql`
 export class OverviewComponent implements OnInit {
   difficulty: any
   levelId: any
+  overviewOf: string
+  getStarted: string
   constructor(private apollo: Apollo, private route: ActivatedRoute) {}
 
   ngOnInit() {
@@ -46,6 +52,10 @@ export class OverviewComponent implements OnInit {
           level: this.levelId,
         },
       })
-      .valueChanges.subscribe(({ data }) => (this.difficulty = data.difficulty))
+      .valueChanges.subscribe(({ data }) => {
+        this.difficulty = data.difficulty
+        this.overviewOf = data.words.find(w => w.wordId === 'overviewOf').word
+        this.getStarted = data.words.find(w => w.wordId === 'getStarted').word
+      })
   }
 }

@@ -18,6 +18,12 @@ const GET_LESSON = gql`
       }
       references
     }
+    words(
+      where: { wordId_in: ["nextLesson", "continue", "greatJobLesson", "back"] }
+    ) {
+      word
+      wordId
+    }
   }
 `
 
@@ -29,6 +35,10 @@ const GET_LESSON = gql`
 export class LessonComponent implements OnInit {
   lesson: any
   lessonId: any
+  nextLesson: string
+  continue: string
+  greatJobLesson: string
+  back: string
 
   constructor(private apollo: Apollo, private route: ActivatedRoute) {}
 
@@ -51,6 +61,12 @@ export class LessonComponent implements OnInit {
       })
       .valueChanges.subscribe(({ data }) => {
         this.lesson = data.lesson
+        this.nextLesson = data.words.find(w => w.wordId === 'nextLesson').word
+        this.continue = data.words.find(w => w.wordId === 'continue').word
+        this.greatJobLesson = data.words.find(
+          w => w.wordId === 'greatJobLesson',
+        ).word
+        this.back = data.words.find(w => w.wordId === 'back').word
       })
   }
 }

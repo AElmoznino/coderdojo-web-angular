@@ -8,7 +8,6 @@
           <markdown [data]="lesson.lessonIntro"></markdown>
         </div>
         <div class="info-box">
-          <h4>Du kommer lära dig:</h4>
           <markdown [data]="lesson.lessonObjectives"></markdown>
         </div>
       </div>
@@ -22,24 +21,22 @@
         class="next-innerwrap"
         *ngIf="lesson?.nextLesson; else backToOverview"
       >
-        <strong>Nästa lektion: {{ lesson.nextLesson.lessonTitle }}</strong>
+        <strong>{{ nextLesson }}: {{ lesson.nextLesson.lessonTitle }}</strong>
         <a
           mat-raised-button
           color="primary"
           routerLink="/lesson/{{ lesson.nextLesson.lessonId }}"
-          >Fortsätt <mat-icon>chevron_right</mat-icon></a
+          >{{ continue }} <mat-icon>chevron_right</mat-icon></a
         >
       </div>
       <ng-template #backToOverview>
         <div class="next-innerwrap">
-          <strong
-            >Bra jobbat, du är färdig! Tillbaka till översiktssidan</strong
-          >
+          <strong>{{ greatJobLesson }}</strong>
           <a
             mat-raised-button
             color="primary"
             routerLink="/overview/{{ lesson.difficultyLevel }}"
-            ><mat-icon>chevron_left</mat-icon> Tillbaka</a
+            ><mat-icon>chevron_left</mat-icon> {{ back }}</a
           >
         </div>
       </ng-template>
