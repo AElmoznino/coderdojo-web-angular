@@ -5,15 +5,15 @@
     </a>
     <div>
       <button mat-button routerLink="/">
-        <mat-icon>home</mat-icon> Startsidan
+        <mat-icon>home</mat-icon> {{ homePage }}
       </button>
       <button mat-button routerLink="/info/references">
-        <mat-icon>description</mat-icon> Referenser
+        <mat-icon>description</mat-icon> {{ references }}
       </button>
       <button mat-button routerLink="/info/about">
-        <mat-icon>info</mat-icon> Om
+        <mat-icon>info</mat-icon> {{ about }}
       </button>
-      <app-language-picker></app-language-picker>
+      <app-language-picker [languageString]="language"></app-language-picker>
     </div>
   </div>
 </nav>

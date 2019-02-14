@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, Input, OnInit } from '@angular/core'
 
 @Component({
   selector: 'app-language-picker',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core'
   styleUrls: ['./language-picker.component.scss'],
 })
 export class LanguagePickerComponent implements OnInit {
+  @Input() languageString: string
   userLanguage: string
 
   ngOnInit() {
