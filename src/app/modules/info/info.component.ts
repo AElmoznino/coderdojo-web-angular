@@ -3,7 +3,7 @@ import gql from 'graphql-tag'
 import { Apollo } from 'apollo-angular'
 import { ActivatedRoute } from '@angular/router'
 
-const GET_PAGE = gql`
+export const GET_PAGE = gql`
   query GetPage($pageId: String) {
     page(where: { pageId: $pageId }) {
       pageBody

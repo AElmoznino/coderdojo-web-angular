@@ -3,7 +3,7 @@ import gql from 'graphql-tag'
 import { Apollo } from 'apollo-angular'
 import { handleWords } from '../../shared/wordHelper'
 
-const WORDS_QUERY = gql`
+export const WORDS_QUERY = gql`
   query getWords {
     words(
       where: { wordId_in: ["homePage", "about", "references", "language"] }
