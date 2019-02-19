@@ -64,8 +64,8 @@ describe('HeaderComponent', () => {
   })
 
   it('should have a logo', () => {
-    expect(fixture.nativeElement.querySelector('img').src).toEqual(
-      'http://localhost:9876/assets/cd-logo.png',
+    expect(fixture.nativeElement.querySelector('img').src).toContain(
+      '/assets/cd-logo.png',
     )
   })
 

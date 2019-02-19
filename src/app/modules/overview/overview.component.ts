@@ -4,7 +4,7 @@ import { Apollo } from 'apollo-angular'
 import { ActivatedRoute } from '@angular/router'
 import { handleWords } from '../../shared/wordHelper'
 
-const GET_OVERVIEW = gql`
+export const GET_OVERVIEW = gql`
   query getOverview($level: String) {
     difficulty(where: { difficultyId: $level }) {
       difficultyName

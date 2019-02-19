@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import gql from 'graphql-tag'
 import { Apollo } from 'apollo-angular'
 
-const GET_DIFFICULTIES = gql`
+export const GET_DIFFICULTIES = gql`
   query difficulties {
     difficulties {
       difficultyDescription
