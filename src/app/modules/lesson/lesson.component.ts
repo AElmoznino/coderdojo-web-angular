@@ -4,7 +4,7 @@ import { Apollo } from 'apollo-angular'
 import { ActivatedRoute } from '@angular/router'
 import { handleWords } from '../../shared/wordHelper'
 
-const GET_LESSON = gql`
+export const GET_LESSON = gql`
   query GetLesson($lesson: String) {
     lesson(where: { lessonId: $lesson }) {
       difficultyLevel
