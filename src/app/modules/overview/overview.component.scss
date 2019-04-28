@@ -38,11 +38,11 @@
 
 .course-wrap__inner {
   display: grid;
-  grid-template-columns: repeat(4, 200px);
+  grid-template-columns: repeat(4, 195px);
   grid-column-gap: $sizes-medium;
+  grid-row-gap: $sizes-medium;
 
   @include mobile {
-    grid-row-gap: $sizes-medium;
     grid-template-columns: 1fr;
   }
 }
