@@ -1,9 +1,9 @@
+import { HttpHeaders } from '@angular/common/http'
 import { NgModule } from '@angular/core'
 import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular'
-import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http'
+import { HttpLink, HttpLinkModule } from 'apollo-angular-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { environment } from '../environments/environment'
-import { HttpHeaders } from '@angular/common/http'
 
 const uri = environment.graphCMSEndpoint // <-- add the URL of the GraphQL server here
 
@@ -18,7 +18,7 @@ const createApollo = (httpLink: HttpLink) => {
     link: httpLink.create({
       uri,
       headers: new HttpHeaders({
-        Authorization: environment.graphCMSToken,
+        Authorization: `Bearer ${environment.graphCMSToken}`,
         locale: getUserLanguage(),
       }),
     }),
