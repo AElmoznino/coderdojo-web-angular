@@ -10,7 +10,7 @@ const uri = environment.graphCMSEndpoint // <-- add the URL of the GraphQL serve
 const getUserLanguage = () => {
   const userLanguage = localStorage.getItem('userLanguage')
 
-  return userLanguage ? userLanguage : 'SV'
+  return userLanguage ? userLanguage : 'sv'
 }
 
 const createApollo = (httpLink: HttpLink) => {
@@ -19,7 +19,7 @@ const createApollo = (httpLink: HttpLink) => {
       uri,
       headers: new HttpHeaders({
         Authorization: `Bearer ${environment.graphCMSToken}`,
-        locale: getUserLanguage(),
+        'gcms-locales': getUserLanguage(),
         'Access-Control-Allow-Origin': '*',
       }),
     }),

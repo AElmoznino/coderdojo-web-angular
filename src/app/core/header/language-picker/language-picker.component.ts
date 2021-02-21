@@ -24,11 +24,11 @@ export class LanguagePickerComponent implements OnInit {
       return
     }
 
-    localStorage.setItem('userLanguage', event.target.value)
+    localStorage.setItem('userLanguage', event.target.value.toLowerCase())
 
     document.documentElement.setAttribute(
       'lang',
-      event.target.value.toLowerCase(),
+      event.target.value.toLowerCase()
     )
 
     window.location.reload()
