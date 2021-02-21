@@ -20,6 +20,7 @@ const createApollo = (httpLink: HttpLink) => {
       headers: new HttpHeaders({
         Authorization: `Bearer ${environment.graphCMSToken}`,
         locale: getUserLanguage(),
+        'Access-Control-Allow-Origin': '*',
       }),
     }),
     cache: new InMemoryCache(),

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
-import gql from 'graphql-tag'
-import { Apollo } from 'apollo-angular'
 import { ActivatedRoute } from '@angular/router'
+import { Apollo } from 'apollo-angular'
+import gql from 'graphql-tag'
 import { handleWords } from '../../shared/wordHelper'
 
 export const GET_OVERVIEW = gql`
@@ -11,7 +11,7 @@ export const GET_OVERVIEW = gql`
       difficultyId
       difficultyOverviewDescription
       difficultyDescription
-      courses(where: { status: PUBLISHED }) {
+      courses {
         courseDescription
         courseId
         courseName
@@ -41,7 +41,7 @@ export class OverviewComponent implements OnInit {
   constructor(private apollo: Apollo, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe((params) => {
       this.levelId = params.get('level')
     })
 
