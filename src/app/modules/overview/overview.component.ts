@@ -22,7 +22,7 @@ export const GET_OVERVIEW = gql`
         }
       }
     }
-    words(where: { wordId_in: ["overviewOf", "getStarted"] }) {
+    words(where: { wordId_in: ["overviewOf", "getStarted", "lesson"] }) {
       word
       wordId
     }

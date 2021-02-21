@@ -55,6 +55,20 @@
   justify-content: space-between;
 }
 
+.lesson-graphic-wrapper {
+  background-color: $color-jacksons-purple;
+  color: $color-gold-drop;
+  font-size: 20px;
+  height: 180px;
+  width: 180px;
+
+  h4,
+  p {
+    padding-left: $sizes-third;
+    padding-right: $sizes-third;
+  }
+}
+
 .lesson__link {
   @include mobile {
     align-self: flex-end;

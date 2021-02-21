@@ -48,6 +48,17 @@
   }
 }
 
+.lesson-graphic-wrapper {
+  align-items: center;
+  background-color: $color-jacksons-purple;
+  color: $color-gold-drop;
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
+  height: 200px;
+  width: 200px;
+}
+
 .difficulty__infowrap {
   display: flex;
   flex-direction: column;

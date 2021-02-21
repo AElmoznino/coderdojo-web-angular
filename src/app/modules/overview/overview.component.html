@@ -10,8 +10,12 @@
           *ngFor="let lesson of course.lessons; index as i"
           class="lesson-wrap"
         >
-          <img src="https://placeimg.com/180/180/tech" />
-          <h4>{{ i + 1 }}: {{ lesson.lessonTitle }}</h4>
+          <div class="lesson-graphic-wrapper">
+            <p>{{ words.lesson }} {{ i + 1 }}:</p>
+            <h4 class="lesson-graphic-wrapper-title">
+              {{ lesson.lessonTitle }}
+            </h4>
+          </div>
           <p>{{ lesson.lessonShortFacts }}</p>
           <a
             mat-raised-button

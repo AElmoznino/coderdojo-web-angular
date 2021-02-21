@@ -5,9 +5,12 @@
     </div>
     <div *ngIf="difficulties && difficulties.length; else spinner">
       <div *ngFor="let difficulty of difficulties" class="difficulty__wrap">
-        <h1 class="difficulty__title">{{ difficulty.difficultyName }}</h1>
         <div class="difficulty__innerwrap">
-          <img src="https://placeimg.com/200/200/tech" />
+          <div class="lesson-graphic-wrapper">
+            <h2 class="lesson-graphic-wrapper-title">
+              {{ difficulty.difficultyName }}
+            </h2>
+          </div>
           <div class="difficulty__infowrap">
             <markdown ngPreserveWhitespaces>
               {{ difficulty.difficultyDescription }}
