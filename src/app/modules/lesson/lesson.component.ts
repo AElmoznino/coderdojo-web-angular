@@ -21,7 +21,15 @@ export const GET_LESSON = gql`
       instructor
     }
     words(
-      where: { wordId_in: ["nextLesson", "continue", "greatJobLesson", "back"] }
+      where: {
+        wordId_in: [
+          "nextLesson"
+          "continue"
+          "greatJobLesson"
+          "back"
+          "writtenBy"
+        ]
+      }
     ) {
       word
       wordId
