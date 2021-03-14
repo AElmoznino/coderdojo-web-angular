@@ -1,33 +1,12 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { Apollo } from 'apollo-angular'
-import gql from 'graphql-tag'
 import { handleWords } from '../../shared/wordHelper'
-
-export const GET_OVERVIEW = gql`
-  query getOverview($level: String) {
-    difficulty(where: { difficultyId: $level }) {
-      difficultyName
-      difficultyId
-      difficultyOverviewDescription
-      difficultyDescription
-      courses {
-        courseDescription
-        courseId
-        courseName
-        lessons {
-          lessonId
-          lessonShortFacts
-          lessonTitle
-        }
-      }
-    }
-    words(where: { wordId_in: ["overviewOf", "getStarted", "lesson"] }) {
-      word
-      wordId
-    }
-  }
-`
+import {
+  getOverview,
+  getOverviewVariables,
+} from 'src/graphql/__generated__/getOverview'
+import { GET_OVERVIEW } from 'src/graphql/GetOverview'
 
 @Component({
   selector: 'app-overview',
@@ -46,7 +25,7 @@ export class OverviewComponent implements OnInit {
     })
 
     this.difficulty = this.apollo
-      .watchQuery<any>({
+      .watchQuery<getOverview, getOverviewVariables>({
         query: GET_OVERVIEW,
         variables: {
           level: this.levelId,

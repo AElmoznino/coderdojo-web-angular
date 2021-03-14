@@ -1,41 +1,12 @@
 import { Component, OnInit } from '@angular/core'
-import gql from 'graphql-tag'
 import { Apollo } from 'apollo-angular'
 import { ActivatedRoute } from '@angular/router'
 import { handleWords } from '../../shared/wordHelper'
-
-export const GET_LESSON = gql`
-  query GetLesson($lesson: String) {
-    lesson(where: { lessonId: $lesson }) {
-      difficultyLevel
-      lessonBody
-      lessonIntro
-      lessonObjectives
-      lessonShortFacts
-      lessonTitle
-      nextLesson {
-        lessonId
-        lessonTitle
-      }
-      references
-      instructor
-    }
-    words(
-      where: {
-        wordId_in: [
-          "nextLesson"
-          "continue"
-          "greatJobLesson"
-          "back"
-          "writtenBy"
-        ]
-      }
-    ) {
-      word
-      wordId
-    }
-  }
-`
+import {
+  GetLesson,
+  GetLessonVariables,
+} from 'src/graphql/__generated__/GetLesson'
+import { GET_LESSON } from 'src/graphql/GetLesson'
 
 @Component({
   selector: 'app-lesson',
@@ -60,7 +31,7 @@ export class LessonComponent implements OnInit {
 
   fetchData() {
     this.apollo
-      .watchQuery<any>({
+      .watchQuery<GetLesson, GetLessonVariables>({
         query: GET_LESSON,
         variables: {
           lesson: this.lessonId,

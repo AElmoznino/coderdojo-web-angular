@@ -2,14 +2,8 @@ import { Component, OnInit } from '@angular/core'
 import gql from 'graphql-tag'
 import { Apollo } from 'apollo-angular'
 import { ActivatedRoute } from '@angular/router'
-
-export const GET_PAGE = gql`
-  query GetPage($pageId: String) {
-    page(where: { pageId: $pageId }) {
-      pageBody
-    }
-  }
-`
+import { GetPage, GetPageVariables } from 'src/graphql/__generated__/GetPage'
+import { GET_PAGE } from 'src/graphql/GetPage'
 
 @Component({
   selector: 'app-info',
@@ -22,7 +16,7 @@ export class InfoComponent implements OnInit {
   constructor(private apollo: Apollo, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.route.paramMap.subscribe(param => {
+    this.route.paramMap.subscribe((param) => {
       this.pageId = param.get('pageId')
       this.fetchData()
     })
@@ -30,7 +24,7 @@ export class InfoComponent implements OnInit {
 
   fetchData() {
     this.apollo
-      .watchQuery<any>({
+      .watchQuery<GetPage, GetPageVariables>({
         query: GET_PAGE,
         variables: {
           pageId: this.pageId,
