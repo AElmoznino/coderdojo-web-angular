@@ -18,9 +18,18 @@ export const GET_LESSON = gql`
         lessonTitle
       }
       references
+      instructor
     }
     words(
-      where: { wordId_in: ["nextLesson", "continue", "greatJobLesson", "back"] }
+      where: {
+        wordId_in: [
+          "nextLesson"
+          "continue"
+          "greatJobLesson"
+          "back"
+          "writtenBy"
+        ]
+      }
     ) {
       word
       wordId
@@ -41,7 +50,7 @@ export class LessonComponent implements OnInit {
   constructor(private apollo: Apollo, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe((params) => {
       this.lessonId = params.get('lessonId')
       this.fetchData()
     })
