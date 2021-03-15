@@ -4,7 +4,7 @@
       <div class="top-wrap">
         <div>
           <h1>{{ lesson.lessonTitle }}</h1>
-          <h2>{{ words.writtenBy }} {{ lesson.instructor }}</h2>
+          <h2 *ngIf="lesson.instructor">{{ words.writtenBy }} {{ lesson.instructor }}</h2>
           <p>{{ lesson.lessonShortFacts }}</p>
           <markdown [data]="lesson.lessonIntro"></markdown>
         </div>
