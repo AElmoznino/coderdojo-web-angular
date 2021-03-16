@@ -32,8 +32,9 @@ Inspired by https://itnext.io/choosing-a-highly-scalable-folder-structure-in-ang
 
 ## Generate types for apollo
 
-If this is the first time you are generating types follow all the steps, but if you already have the apollo installed and downloaded the schema feel free to skit to step number two. 0. Download the apollo cli as a global dependency: `npm i -g apollo`
+If this is the first time you are generating types follow all the steps, but if you already have the apollo installed and downloaded the schema feel free to skit to step number two.
 
+0. Download the apollo cli as a global dependency: `npm i -g apollo`
 1. Introspect the schema and download a schema.json file with the following command: `apollo client:download-schema --endpoint=GRAPH_CMS_ENDPOINT schema.json`.
 2. Create a .ts file with your query or mutation in the graphql folder. In the typescript file make sure that you are exporting your query or mutation.
 3. I have provided a codegen command in the package.json. Run `npm run codegen` to generate the types.
