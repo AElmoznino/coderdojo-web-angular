@@ -1,23 +1,9 @@
 import { Component, OnInit } from '@angular/core'
 import gql from 'graphql-tag'
 import { Apollo } from 'apollo-angular'
+import { difficulties } from 'src/graphql/__generated__/difficulties'
+import { GET_DIFFICULTIES } from 'src/graphql/GetDifficulties'
 
-export const GET_DIFFICULTIES = gql`
-  query difficulties {
-    difficulties {
-      difficultyDescription
-      difficultyId
-      difficultyName
-      difficultyOverviewDescription
-    }
-    page(where: { pageId: "start" }) {
-      pageBody
-    }
-    words(where: { wordId: "getStarted" }) {
-      word
-    }
-  }
-`
 @Component({
   selector: 'app-start',
   templateUrl: './start.component.html',
@@ -32,7 +18,7 @@ export class StartComponent implements OnInit {
 
   ngOnInit() {
     this.difficulties = this.apollo
-      .watchQuery<any>({
+      .watchQuery<difficulties>({
         query: GET_DIFFICULTIES,
       })
       .valueChanges.subscribe(({ data }) => {
