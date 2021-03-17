@@ -32,7 +32,7 @@ Inspired by https://itnext.io/choosing-a-highly-scalable-folder-structure-in-ang
 
 ## Generate types for apollo
 
-If this is the first time you are generating types follow all the steps, but if you already have the apollo installed and downloaded the schema feel free to skit to step number two.
+If this is the first time you are generating types follow all the steps, but if you already have Apollo installed and downloaded the schema, feel free to skip to step number two.
 
 0. Download the apollo cli as a global dependency: `npm i -g apollo`
 1. Introspect the schema and download a schema.json file with the following command: `apollo client:download-schema --endpoint=GRAPH_CMS_ENDPOINT schema.json`.
