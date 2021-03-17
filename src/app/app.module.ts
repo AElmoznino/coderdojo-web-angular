@@ -10,11 +10,9 @@ import { HttpClientModule } from '@angular/common/http'
 import { CommonModule } from '@angular/common'
 import { HeaderComponent } from './core/header/header.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import {
-  MatButtonModule,
-  MatIconModule,
-  MatMenuModule,
-} from '@angular/material'
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { OverviewComponent } from './modules/overview/overview.component'
 import { LessonComponent } from './modules/lesson/lesson.component'

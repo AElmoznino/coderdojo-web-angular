@@ -4,7 +4,8 @@ import { LessonComponent, GET_LESSON } from './lesson.component'
 import { MarkdownModule, MarkdownService, MarkedOptions } from 'ngx-markdown'
 import { ActivatedRoute } from '@angular/router'
 import { of } from 'rxjs'
-import { MatIconModule, MatProgressSpinnerModule } from '@angular/material'
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RouterTestingModule } from '@angular/router/testing'
 import {
   ApolloTestingModule,
