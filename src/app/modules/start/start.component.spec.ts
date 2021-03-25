@@ -1,13 +1,17 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing'
-
-import { StartComponent, GET_DIFFICULTIES } from './start.component'
-import { MarkdownModule, MarkdownService, MarkedOptions } from 'ngx-markdown'
-import { RouterTestingModule } from '@angular/router/testing'
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing'
+import { RouterTestingModule } from '@angular/router/testing'
 import {
-  ApolloTestingModule,
   ApolloTestingController,
+  ApolloTestingModule,
 } from 'apollo-angular/testing'
+import {
+  MarkdownModule,
+  MarkdownService,
+  MarkedOptions,
+  SECURITY_CONTEXT,
+} from 'ngx-markdown'
+import { GET_DIFFICULTIES, StartComponent } from './start.component'
 
 describe('StartComponent', () => {
   let component: StartComponent
@@ -46,14 +50,20 @@ describe('StartComponent', () => {
     },
   }
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [StartComponent],
-      imports: [ApolloTestingModule, MarkdownModule, RouterTestingModule],
-      providers: [MarkdownService, MarkedOptions],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    }).compileComponents()
-  }))
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [StartComponent],
+        imports: [ApolloTestingModule, MarkdownModule, RouterTestingModule],
+        providers: [
+          MarkdownService,
+          MarkedOptions,
+          { provide: SECURITY_CONTEXT, useValue: 0 },
+        ],
+        schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      }).compileComponents()
+    })
+  )
 
   beforeEach(() => {
     fixture = TestBed.createComponent(StartComponent)
@@ -81,7 +91,7 @@ describe('StartComponent', () => {
 
     it('should not show any spinner', () => {
       const spinner = fixture.nativeElement.querySelector(
-        'mat-progress-spinner',
+        'mat-progress-spinner'
       )
 
       expect(spinner).toBeFalsy()
