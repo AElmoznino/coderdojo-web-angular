@@ -1,21 +1,21 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing'
-
-import { LanguagePickerComponent } from './language-picker.component'
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
-import { MatMenuModule } from '@angular/material/menu';
-import { By } from '@angular/platform-browser'
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing'
+import { MatMenuModule } from '@angular/material/menu'
+import { LanguagePickerComponent } from './language-picker.component'
 
 describe('LanguagePickerComponent', () => {
   let component: LanguagePickerComponent
   let fixture: ComponentFixture<LanguagePickerComponent>
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [LanguagePickerComponent],
-      imports: [MatMenuModule],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    }).compileComponents()
-  }))
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [LanguagePickerComponent],
+        imports: [MatMenuModule],
+        schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      }).compileComponents()
+    })
+  )
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LanguagePickerComponent)
@@ -24,9 +24,7 @@ describe('LanguagePickerComponent', () => {
 
     const store = {}
     const mockLocalStorage = {
-      getItem: (key: string): string => {
-        return key in store ? store[key] : null
-      },
+      getItem: (key: string): string => (key in store ? store[key] : null),
       setItem: (key: string, value: string) => {
         store[key] = `${value}`
       },
@@ -45,7 +43,7 @@ describe('LanguagePickerComponent', () => {
     fixture.detectChanges()
 
     expect(fixture.nativeElement.querySelector('button').textContent).toContain(
-      'Language',
+      'Language'
     )
   })
   // TODO: Add tests for handleClickLanguage.
@@ -64,7 +62,7 @@ describe('LanguagePickerComponent', () => {
 
       expect(localStorage.setItem).toHaveBeenCalledWith(
         'userLanguage',
-        'swedish',
+        'swedish'
       )
     })
   })

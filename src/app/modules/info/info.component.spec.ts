@@ -1,14 +1,18 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing'
-
-import { InfoComponent, GET_PAGE } from './info.component'
-import {
-  ApolloTestingModule,
-  ApolloTestingController,
-} from 'apollo-angular/testing'
-import { MarkdownModule, MarkdownService, MarkedOptions } from 'ngx-markdown'
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing'
 import { ActivatedRoute } from '@angular/router'
+import {
+  ApolloTestingController,
+  ApolloTestingModule,
+} from 'apollo-angular/testing'
+import {
+  MarkdownModule,
+  MarkdownService,
+  MarkedOptions,
+  SECURITY_CONTEXT,
+} from 'ngx-markdown'
 import { of } from 'rxjs'
+import { GET_PAGE, InfoComponent } from './info.component'
 
 describe('InfoComponent', () => {
   let component: InfoComponent
@@ -25,27 +29,28 @@ describe('InfoComponent', () => {
     },
   }
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [ApolloTestingModule, MarkdownModule],
-      declarations: [InfoComponent],
-      providers: [
-        {
-          provide: ActivatedRoute,
-          useValue: {
-            paramMap: of({
-              get: () => {
-                return 'references'
-              },
-            }),
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [ApolloTestingModule, MarkdownModule],
+        declarations: [InfoComponent],
+        providers: [
+          {
+            provide: ActivatedRoute,
+            useValue: {
+              paramMap: of({
+                get: () => 'references',
+              }),
+            },
           },
-        },
-        MarkdownService,
-        MarkedOptions,
-      ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    }).compileComponents()
-  }))
+          MarkdownService,
+          MarkedOptions,
+          { provide: SECURITY_CONTEXT, useValue: 0 },
+        ],
+        schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      }).compileComponents()
+    })
+  )
 
   beforeEach(() => {
     fixture = TestBed.createComponent(InfoComponent)
@@ -83,7 +88,7 @@ describe('InfoComponent', () => {
     expect(spinner).toBeFalsy()
 
     expect(fixture.nativeElement.querySelector('h1').textContent).toContain(
-      'JavaScript',
+      'JavaScript'
     )
   })
 })

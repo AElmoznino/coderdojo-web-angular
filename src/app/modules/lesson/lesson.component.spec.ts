@@ -1,16 +1,20 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing'
-
-import { LessonComponent, GET_LESSON } from './lesson.component'
-import { MarkdownModule, MarkdownService, MarkedOptions } from 'ngx-markdown'
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing'
+import { MatIconModule } from '@angular/material/icon'
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { ActivatedRoute } from '@angular/router'
-import { of } from 'rxjs'
-import { MatIconModule } from '@angular/material/icon';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RouterTestingModule } from '@angular/router/testing'
 import {
-  ApolloTestingModule,
   ApolloTestingController,
+  ApolloTestingModule,
 } from 'apollo-angular/testing'
+import {
+  MarkdownModule,
+  MarkdownService,
+  MarkedOptions,
+  SECURITY_CONTEXT,
+} from 'ngx-markdown'
+import { of } from 'rxjs'
+import { GET_LESSON, LessonComponent } from './lesson.component'
 
 describe('LessonComponent', () => {
   let component: LessonComponent
@@ -21,6 +25,7 @@ describe('LessonComponent', () => {
     data: {
       lesson: {
         difficultyLevel: 'beginner',
+        instructor: 'André',
         lessonBody: `## Varför är TDD så bra då?\nMan använder sig av TDD för att:
           - veta när ens kod fungerar som man har tänkt sig,\n- veta att ens kod inte går sönder av misstag.`,
         lessonIntro: `**TDD** innebär att **man skriver tester innan man skriver sin kod**, 
@@ -66,32 +71,33 @@ describe('LessonComponent', () => {
     },
   }
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        ApolloTestingModule,
-        MarkdownModule,
-        MatIconModule,
-        MatProgressSpinnerModule,
-        RouterTestingModule,
-      ],
-      declarations: [LessonComponent],
-      providers: [
-        {
-          provide: ActivatedRoute,
-          useValue: {
-            paramMap: of({
-              get: () => {
-                return 'js-intro'
-              },
-            }),
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [
+          ApolloTestingModule,
+          MarkdownModule,
+          MatIconModule,
+          MatProgressSpinnerModule,
+          RouterTestingModule,
+        ],
+        declarations: [LessonComponent],
+        providers: [
+          {
+            provide: ActivatedRoute,
+            useValue: {
+              paramMap: of({
+                get: () => 'js-intro',
+              }),
+            },
           },
-        },
-        MarkdownService,
-        MarkedOptions,
-      ],
-    }).compileComponents()
-  }))
+          MarkdownService,
+          MarkedOptions,
+          { provide: SECURITY_CONTEXT, useValue: 0 },
+        ],
+      }).compileComponents()
+    })
+  )
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LessonComponent)
@@ -120,7 +126,7 @@ describe('LessonComponent', () => {
 
     it('renders no spinner when it has received data', () => {
       const spinner = fixture.nativeElement.querySelector(
-        'mat-progress-spinner',
+        'mat-progress-spinner'
       )
 
       expect(spinner).toBeFalsy()
@@ -128,17 +134,17 @@ describe('LessonComponent', () => {
 
     it('renders a header when it has received data', () => {
       expect(fixture.nativeElement.querySelector('h1').textContent).toContain(
-        'Introduktion till TDD & Siffror i JavaScript',
+        'Introduktion till TDD & Siffror i JavaScript'
       )
     })
 
     it('should have a Next lesson link if there is a NextLesson', () => {
       expect(fixture.nativeElement.querySelector('a').textContent).toContain(
-        'Fortsätt',
+        'Fortsätt'
       )
 
       expect(fixture.nativeElement.querySelector('a').href).toContain(
-        '/lesson/js-intro-2',
+        '/lesson/js-intro-2'
       )
     })
 

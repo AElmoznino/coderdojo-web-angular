@@ -13,8 +13,7 @@ const getUserLanguage = () => {
   return userLanguage ? userLanguage : 'sv'
 }
 
-const createApollo = (httpLink: HttpLink) => {
-  return {
+const createApollo = (httpLink: HttpLink) => ({
     link: httpLink.create({
       uri,
       headers: new HttpHeaders({
@@ -24,8 +23,7 @@ const createApollo = (httpLink: HttpLink) => {
       }),
     }),
     cache: new InMemoryCache(),
-  }
-}
+  })
 
 @NgModule({
   exports: [ApolloModule, HttpLinkModule],

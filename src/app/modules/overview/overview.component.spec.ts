@@ -1,13 +1,17 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing'
-
-import { OverviewComponent, GET_OVERVIEW } from './overview.component'
-import { MarkdownModule, MarkdownService, MarkedOptions } from 'ngx-markdown'
-import { RouterTestingModule } from '@angular/router/testing'
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing'
+import { RouterTestingModule } from '@angular/router/testing'
 import {
-  ApolloTestingModule,
   ApolloTestingController,
+  ApolloTestingModule,
 } from 'apollo-angular/testing'
+import {
+  MarkdownModule,
+  MarkdownService,
+  MarkedOptions,
+  SECURITY_CONTEXT,
+} from 'ngx-markdown'
+import { GET_OVERVIEW, OverviewComponent } from './overview.component'
 
 describe('OverviewComponent', () => {
   let controller: ApolloTestingController
@@ -68,14 +72,20 @@ describe('OverviewComponent', () => {
     },
   }
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [OverviewComponent],
-      imports: [ApolloTestingModule, MarkdownModule, RouterTestingModule],
-      providers: [MarkdownService, MarkedOptions],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    }).compileComponents()
-  }))
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [OverviewComponent],
+        imports: [ApolloTestingModule, MarkdownModule, RouterTestingModule],
+        providers: [
+          MarkdownService,
+          MarkedOptions,
+          { provide: SECURITY_CONTEXT, useValue: 0 },
+        ],
+        schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      }).compileComponents()
+    })
+  )
 
   beforeEach(() => {
     fixture = TestBed.createComponent(OverviewComponent)
@@ -103,7 +113,7 @@ describe('OverviewComponent', () => {
 
     it('should display no spinner', () => {
       const spinner = fixture.nativeElement.querySelector(
-        'mat-progress-spinner',
+        'mat-progress-spinner'
       )
 
       expect(spinner).toBeFalsy()
