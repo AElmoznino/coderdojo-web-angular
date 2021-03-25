@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing'
 
 import { InfoComponent, GET_PAGE } from './info.component'
 import {
@@ -25,7 +25,7 @@ describe('InfoComponent', () => {
     },
   }
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [ApolloTestingModule, MarkdownModule],
       declarations: [InfoComponent],

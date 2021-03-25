@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing'
 
 import { StartComponent, GET_DIFFICULTIES } from './start.component'
 import { MarkdownModule, MarkdownService, MarkedOptions } from 'ngx-markdown'
@@ -46,7 +46,7 @@ describe('StartComponent', () => {
     },
   }
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [StartComponent],
       imports: [ApolloTestingModule, MarkdownModule, RouterTestingModule],

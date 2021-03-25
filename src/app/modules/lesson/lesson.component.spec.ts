@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing'
 
 import { LessonComponent, GET_LESSON } from './lesson.component'
 import { MarkdownModule, MarkdownService, MarkedOptions } from 'ngx-markdown'
@@ -66,7 +66,7 @@ describe('LessonComponent', () => {
     },
   }
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         ApolloTestingModule,
