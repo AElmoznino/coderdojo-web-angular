@@ -39,9 +39,7 @@ describe('InfoComponent', () => {
             provide: ActivatedRoute,
             useValue: {
               paramMap: of({
-                get: () => {
-                  return 'references'
-                },
+                get: () => 'references',
               }),
             },
           },

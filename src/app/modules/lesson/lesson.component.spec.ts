@@ -87,9 +87,7 @@ describe('LessonComponent', () => {
             provide: ActivatedRoute,
             useValue: {
               paramMap: of({
-                get: () => {
-                  return 'js-intro'
-                },
+                get: () => 'js-intro',
               }),
             },
           },
