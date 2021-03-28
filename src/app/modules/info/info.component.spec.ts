@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { InfoComponent, GET_PAGE } from './info.component'
+import { InfoComponent } from './info.component'
+import { GET_PAGE } from '../../../graphql/GetPage'
 import {
   ApolloTestingModule,
   ApolloTestingController,
@@ -83,7 +84,7 @@ describe('InfoComponent', () => {
     expect(spinner).toBeFalsy()
 
     expect(fixture.nativeElement.querySelector('h1').textContent).toContain(
-      'JavaScript',
+      'JavaScript'
     )
   })
 })

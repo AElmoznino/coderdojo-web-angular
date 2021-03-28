@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { StartComponent, GET_DIFFICULTIES } from './start.component'
+import { StartComponent } from './start.component'
+
+import { GET_DIFFICULTIES } from 'src/graphql/GetDifficulties'
 import { MarkdownModule, MarkdownService, MarkedOptions } from 'ngx-markdown'
 import { RouterTestingModule } from '@angular/router/testing'
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
@@ -81,7 +83,7 @@ describe('StartComponent', () => {
 
     it('should not show any spinner', () => {
       const spinner = fixture.nativeElement.querySelector(
-        'mat-progress-spinner',
+        'mat-progress-spinner'
       )
 
       expect(spinner).toBeFalsy()

@@ -43,4 +43,7 @@ testem.log
 .DS_Store
 Thumbs.db
 
+schema.json
+/__generated__
+
 /src/environments/environment.local.ts

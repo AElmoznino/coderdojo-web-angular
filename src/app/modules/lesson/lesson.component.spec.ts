@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { LessonComponent, GET_LESSON } from './lesson.component'
+import { LessonComponent } from './lesson.component'
+import { GET_LESSON } from 'src/graphql/GetLesson'
 import { MarkdownModule, MarkdownService, MarkedOptions } from 'ngx-markdown'
 import { ActivatedRoute } from '@angular/router'
 import { of } from 'rxjs'
@@ -119,7 +120,7 @@ describe('LessonComponent', () => {
 
     it('renders no spinner when it has received data', () => {
       const spinner = fixture.nativeElement.querySelector(
-        'mat-progress-spinner',
+        'mat-progress-spinner'
       )
 
       expect(spinner).toBeFalsy()
@@ -127,17 +128,17 @@ describe('LessonComponent', () => {
 
     it('renders a header when it has received data', () => {
       expect(fixture.nativeElement.querySelector('h1').textContent).toContain(
-        'Introduktion till TDD & Siffror i JavaScript',
+        'Introduktion till TDD & Siffror i JavaScript'
       )
     })
 
     it('should have a Next lesson link if there is a NextLesson', () => {
       expect(fixture.nativeElement.querySelector('a').textContent).toContain(
-        'Fortsätt',
+        'Fortsätt'
       )
 
       expect(fixture.nativeElement.querySelector('a').href).toContain(
-        '/lesson/js-intro-2',
+        '/lesson/js-intro-2'
       )
     })
 

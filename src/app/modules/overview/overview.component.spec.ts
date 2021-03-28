@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { OverviewComponent, GET_OVERVIEW } from './overview.component'
+import { OverviewComponent } from './overview.component'
+import { GET_OVERVIEW } from 'src/graphql/GetOverview'
 import { MarkdownModule, MarkdownService, MarkedOptions } from 'ngx-markdown'
 import { RouterTestingModule } from '@angular/router/testing'
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
@@ -103,7 +104,7 @@ describe('OverviewComponent', () => {
 
     it('should display no spinner', () => {
       const spinner = fixture.nativeElement.querySelector(
-        'mat-progress-spinner',
+        'mat-progress-spinner'
       )
 
       expect(spinner).toBeFalsy()
